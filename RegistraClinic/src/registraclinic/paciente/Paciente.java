@@ -24,6 +24,8 @@ public class Paciente {
     private String nomePaciente;
     private String rgPaciente;
     private String cpfPaciente;
+    private String rgResponsavel;
+    private String cpfResponsavel;
     private String idadePaciente;
     private Date dataNascimentoPaciente;
     private String sexoPaciente;
@@ -80,6 +82,22 @@ public class Paciente {
         this.cpfPaciente = cpfPaciente;
     }
 
+    public String getRgResponsavel() {
+        return rgResponsavel;
+    }
+
+    public void setRgResponsavel(String rgResponsavel) {
+        this.rgResponsavel = rgResponsavel;
+    }
+
+    public String getCpfResponsavel() {
+        return cpfResponsavel;
+    }
+
+    public void setCpfResponsavel(String cpfResponsavel) {
+        this.cpfResponsavel = cpfResponsavel;
+    }
+    
     public String getIdadePaciente() {
         return idadePaciente;
     }
