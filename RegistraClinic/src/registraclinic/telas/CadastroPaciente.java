@@ -678,25 +678,19 @@ public class CadastroPaciente extends javax.swing.JDialog {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
 
-        if (txtCpf.getText().equals("") || txtDataNascimento.getText().equals("")
+        if (txtDataNascimento.getText().equals("")
                 || txtEndereco.getText().equals("") || jcSexo.getSelectedItem().equals("-------")
                 || txtTelefonePaciente.getText().equals("") || txtNumeroProntuario.getText().equals("")
                 || txtNome.getText().equals("") || txtNumero.getText().equals("")
                 || txtBairro.getText().equals("") || txtCidade.getText().equals("")
                 || jcEstado.getSelectedIndex() == 0 || jcSituacaoPaciente.getSelectedIndex() == 0
- /*-->Aqui*/    || jcTipoPaciente.getSelectedIndex() == 0 && (txtCpf.getText().equals("") || jcSituacaoPaciente.getSelectedIndex() == 1
-                || jcSituacaoPaciente.getSelectedIndex() == 2)) {
+                || jcTipoPaciente.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(this, "Prencha os campos obrigatórios!!");
 
         } else {
             //Com o campo preenchido tá tudo certo. Agora falta quando o campo cpf tá em branco
-            if (pacienteDAO.consultarValorRepetido("cpfPaciente", txtCpf.getText()) && !txtCpf.getText().equals("")) {
-                JOptionPane.showMessageDialog(this, "CPF do paciente já cadastrado!!");
-                txtCpf.requestFocus();
-                jtGeral.setSelectedComponent(jpPaciente);
-                jtGeral.setEnabledAt(0, true);
-
-            } else {
+            if (txtCpf.getText().equals("   .   .   -  ") && (jcSituacaoPaciente.getSelectedIndex() == 3)) {
+                //if (txtCpf.getText().equals("   .   .   -  ") && (jcSituacaoPaciente.getSelectedIndex() == 3)) {
                 paciente.setNomePaciente(txtNome.getText().toUpperCase());
                 paciente.setNumeroProntuarioPaciente(txtNumeroProntuario.getText());
                 paciente.setCpfPaciente(txtCpf.getText());
@@ -721,10 +715,59 @@ public class CadastroPaciente extends javax.swing.JDialog {
                 paciente.setRgResponsavel(txtRgResponsavel.getText());
                 pacienteDAO.salvar(paciente);
                 btLimparActionPerformed(null);
+                txtCpf.setText("");
+                txtCpfResponsavel.setText("");
+                //}
+            } else {
+                if (txtCpf.getText().equals("   .   .   -  ") || txtDataNascimento.getText().equals("")
+                        || txtEndereco.getText().equals("") || jcSexo.getSelectedItem().equals("-------")
+                        || txtTelefonePaciente.getText().equals("") || txtNumeroProntuario.getText().equals("")
+                        || txtNome.getText().equals("") || txtNumero.getText().equals("")
+                        || txtBairro.getText().equals("") || txtCidade.getText().equals("")
+                        || jcEstado.getSelectedIndex() == 0 || jcSituacaoPaciente.getSelectedIndex() == 0
+                        || jcTipoPaciente.getSelectedIndex() == 0) {
+                    JOptionPane.showMessageDialog(this, "Prencha os campos obrigatórios!!");
+
+                } else {
+                    if (pacienteDAO.consultarValorRepetido("cpfPaciente", txtCpf.getText())) {
+                        JOptionPane.showMessageDialog(this, "CPF do paciente já cadastrado!!");
+                        txtCpf.requestFocus();
+                        jtGeral.setSelectedComponent(jpPaciente);
+                        jtGeral.setEnabledAt(0, true);
+                    } else {
+                        paciente.setNomePaciente(txtNome.getText().toUpperCase());
+                        paciente.setNumeroProntuarioPaciente(txtNumeroProntuario.getText());
+                        paciente.setCpfPaciente(txtCpf.getText());
+                        paciente.setDataCadastroPaciente(new Date());
+                        paciente.setTipoPaciente(jcTipoPaciente.getSelectedItem().toString());
+                        paciente.setDataNascimentoPaciente(formataData(txtDataNascimento.getText()));
+
+                        paciente.setEnderecoPaciente(txtEndereco.getText());
+                        paciente.setEnderecoNumeroPaciente(txtNumero.getText());
+                        paciente.setEnderecoComplementoPaciente(txtComplemento.getText());
+                        paciente.setEnderecoBairroPaciente(txtBairro.getText());
+                        paciente.setCidadePaciente(txtCidade.getText());
+                        paciente.setIdadePaciente(getIdade(formataData(txtDataNascimento.getText())));
+                        paciente.setRgPaciente(txtRg.getText());
+                        paciente.setTelefonePaciente(txtTelefonePaciente.getText());
+                        paciente.setSexoPaciente(jcSexo.getSelectedItem().toString());
+                        paciente.setEstadoPaciente(jcEstado.getSelectedItem().toString());
+                        paciente.setSituacaoPaciente(jcSituacaoPaciente.getSelectedItem().toString());
+                        paciente.setNomeResponsavelPaciente(txtNomeResponsavel.getText());
+                        paciente.setTelefoneResponsavelPaciente(txtTelefoneResponsavel.getText());
+                        paciente.setCpfResponsavel(txtCpfResponsavel.getText());
+                        paciente.setRgResponsavel(txtRgResponsavel.getText());
+                        pacienteDAO.salvar(paciente);
+                        btLimparActionPerformed(null);
+                        txtCpf.setText("");
+                        txtCpfResponsavel.setText("");
+                    }
+                }
             }
 
         }
     }//GEN-LAST:event_btSalvarActionPerformed
+
     private String getIdade(Date data) {
         Calendar dataNascimento = Calendar.getInstance();
         dataNascimento.setTime(data);
