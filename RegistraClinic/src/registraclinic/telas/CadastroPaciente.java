@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import registraclinic.paciente.Paciente;
 import registraclinic.paciente.PacienteDAO;
 import registraclinic.paciente.PacienteTableModel;
+import registraclinic.util.Relatorios;
 
 /**
  *
@@ -714,6 +715,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
                 paciente.setCpfResponsavel(txtCpfResponsavel.getText());
                 paciente.setRgResponsavel(txtRgResponsavel.getText());
                 pacienteDAO.salvar(paciente);
+                Relatorios.gerarRelatorioDadosCadastrais(paciente);
                 btLimparActionPerformed(null);
                 txtCpf.setText("");
                 txtCpfResponsavel.setText("");
@@ -758,6 +760,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
                         paciente.setCpfResponsavel(txtCpfResponsavel.getText());
                         paciente.setRgResponsavel(txtRgResponsavel.getText());
                         pacienteDAO.salvar(paciente);
+                        Relatorios.gerarRelatorioDadosCadastrais(paciente);
                         btLimparActionPerformed(null);
                         txtCpf.setText("");
                         txtCpfResponsavel.setText("");
