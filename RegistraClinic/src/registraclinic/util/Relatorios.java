@@ -61,7 +61,7 @@ public class Relatorios {
             } catch (com.itextpdf.text.DocumentException ex) {
                 Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
             try {
                 //Linha 01
                 Paragraph linha1 = new Paragraph("Nome do Paciente", boldFont);
@@ -70,6 +70,9 @@ public class Relatorios {
                 linha1 = new Paragraph(paciente.getNomePaciente(), normal);
                 linha1.setAlignment(Element.ALIGN_JUSTIFIED);
                 document.add(linha1);
+                linha1 = new Paragraph("_______________________________________________________________________");
+                linha1.setAlignment(Element.ALIGN_CENTER);
+                document.add(linha1);
                 //Linha 02
                 Paragraph linha2 = new Paragraph("Sexo", boldFont);
                 linha2.setAlignment(Element.ALIGN_JUSTIFIED);
@@ -77,26 +80,43 @@ public class Relatorios {
                 linha2 = new Paragraph(paciente.getSexoPaciente(), normal);
                 linha2.setAlignment(Element.ALIGN_JUSTIFIED);
                 document.add(linha2);
+                linha2 = new Paragraph("_______________________________________________________________________");
+                linha2.setAlignment(Element.ALIGN_CENTER);
+                document.add(linha2);
                 //Linha 03
-                Paragraph linha3 = new Paragraph("CPF Paciente", boldFont);
-                linha3.setAlignment(Element.ALIGN_JUSTIFIED);
-                document.add(linha3);
-                linha3 = new Paragraph(paciente.getCpfPaciente(), normal);
-                linha3.setAlignment(Element.ALIGN_JUSTIFIED);
-                document.add(linha3);
+                if (!(paciente.getCpfPaciente().equals("   .   .   -  "))) {
+                    Paragraph linha3 = new Paragraph("CPF Paciente", boldFont);
+                    linha3.setAlignment(Element.ALIGN_JUSTIFIED);
+                    document.add(linha3);
+                    linha3 = new Paragraph(paciente.getCpfPaciente(), normal);
+                    linha3.setAlignment(Element.ALIGN_JUSTIFIED);
+                    document.add(linha3);
+                    linha3 = new Paragraph("_______________________________________________________________________");
+                    linha3.setAlignment(Element.ALIGN_CENTER);
+                    document.add(linha3);
+                }
+
                 //Linha 04
-                Paragraph linha4 = new Paragraph("RG Paciente", boldFont);
-                linha4.setAlignment(Element.ALIGN_JUSTIFIED);
-                document.add(linha4);
-                linha4 = new Paragraph(paciente.getRgPaciente(), normal);
-                linha4.setAlignment(Element.ALIGN_JUSTIFIED);
-                document.add(linha4);
+                if (!(paciente.getRgPaciente().equals(""))) {
+                    Paragraph linha4 = new Paragraph("RG Paciente", boldFont);
+                    linha4.setAlignment(Element.ALIGN_JUSTIFIED);
+                    document.add(linha4);
+                    linha4 = new Paragraph(paciente.getRgPaciente(), normal);
+                    linha4.setAlignment(Element.ALIGN_JUSTIFIED);
+                    document.add(linha4);
+                    linha4 = new Paragraph("_______________________________________________________________________");
+                    linha4.setAlignment(Element.ALIGN_CENTER);
+                    document.add(linha4);
+                }
                 //Linha 05
                 Paragraph linha5 = new Paragraph("Situação do Paciente", boldFont);
                 linha5.setAlignment(Element.ALIGN_JUSTIFIED);
                 document.add(linha5);
                 linha5 = new Paragraph(paciente.getSituacaoPaciente(), normal);
                 linha5.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha5);
+                linha5 = new Paragraph("_______________________________________________________________________");
+                linha5.setAlignment(Element.ALIGN_CENTER);
                 document.add(linha5);
                 //Linha 06
                 Paragraph linha6 = new Paragraph("Tipo Paciente", boldFont);
@@ -105,6 +125,9 @@ public class Relatorios {
                 linha6 = new Paragraph(paciente.getTipoPaciente(), normal);
                 linha6.setAlignment(Element.ALIGN_JUSTIFIED);
                 document.add(linha6);
+                linha6 = new Paragraph("_______________________________________________________________________");
+                linha6.setAlignment(Element.ALIGN_CENTER);
+                document.add(linha6);
                 //Linha 07
                 Paragraph linha7 = new Paragraph("Data de Nascimento do Paciente", boldFont);
                 linha7.setAlignment(Element.ALIGN_JUSTIFIED);
@@ -112,26 +135,42 @@ public class Relatorios {
                 linha7 = new Paragraph(converterDataString(paciente.getDataCadastroPaciente()), normal);
                 linha7.setAlignment(Element.ALIGN_JUSTIFIED);
                 document.add(linha7);
+                linha7 = new Paragraph("_______________________________________________________________________");
+                linha7.setAlignment(Element.ALIGN_CENTER);
+                document.add(linha7);
                 //Linha 08
-                Paragraph linha8 = new Paragraph("CPF do Responsável", boldFont);
-                linha8.setAlignment(Element.ALIGN_JUSTIFIED);
-                document.add(linha8);
-                linha8 = new Paragraph(paciente.getCpfResponsavel(), normal);
-                linha8.setAlignment(Element.ALIGN_JUSTIFIED);
-                document.add(linha8);
+                if (!(paciente.getCpfResponsavel().equals("   .   .   -  "))) {
+                    Paragraph linha8 = new Paragraph("CPF do Responsável", boldFont);
+                    linha8.setAlignment(Element.ALIGN_JUSTIFIED);
+                    document.add(linha8);
+                    linha8 = new Paragraph(paciente.getCpfResponsavel(), normal);
+                    linha8.setAlignment(Element.ALIGN_JUSTIFIED);
+                    document.add(linha8);
+                    linha8 = new Paragraph("_______________________________________________________________________");
+                    linha8.setAlignment(Element.ALIGN_CENTER);
+                    document.add(linha8);
+                }
                 //Linha 09
-                Paragraph linha9 = new Paragraph("RG do Responsável", boldFont);
-                linha9.setAlignment(Element.ALIGN_JUSTIFIED);
-                document.add(linha9);
-                linha9 = new Paragraph(paciente.getRgResponsavel(), normal);
-                linha9.setAlignment(Element.ALIGN_JUSTIFIED);
-                document.add(linha9);
+                if (!(paciente.getRgPaciente().equals(""))) {
+                    Paragraph linha9 = new Paragraph("RG do Responsável", boldFont);
+                    linha9.setAlignment(Element.ALIGN_JUSTIFIED);
+                    document.add(linha9);
+                    linha9 = new Paragraph(paciente.getRgResponsavel(), normal);
+                    linha9.setAlignment(Element.ALIGN_JUSTIFIED);
+                    document.add(linha9);
+                    linha9 = new Paragraph("_______________________________________________________________________");
+                    linha9.setAlignment(Element.ALIGN_CENTER);
+                    document.add(linha9);
+                }
                 //Linha 10
                 Paragraph linha10 = new Paragraph("Endereço", boldFont);
                 linha10.setAlignment(Element.ALIGN_JUSTIFIED);
                 document.add(linha10);
                 linha10 = new Paragraph(paciente.getEnderecoPaciente(), normal);
                 linha10.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha10);
+                linha10 = new Paragraph("_______________________________________________________________________");
+                linha10.setAlignment(Element.ALIGN_CENTER);
                 document.add(linha10);
                 //Linha 11
                 Paragraph linha11 = new Paragraph("Nº", boldFont);
@@ -140,6 +179,9 @@ public class Relatorios {
                 linha11 = new Paragraph(paciente.getEnderecoNumeroPaciente(), normal);
                 linha11.setAlignment(Element.ALIGN_JUSTIFIED);
                 document.add(linha11);
+                linha11 = new Paragraph("_______________________________________________________________________");
+                linha11.setAlignment(Element.ALIGN_CENTER);
+                document.add(linha11);
                 //Linha 12
                 Paragraph linha12 = new Paragraph("Bairro", boldFont);
                 linha12.setAlignment(Element.ALIGN_JUSTIFIED);
@@ -147,13 +189,76 @@ public class Relatorios {
                 linha12 = new Paragraph(paciente.getEnderecoBairroPaciente(), normal);
                 linha12.setAlignment(Element.ALIGN_JUSTIFIED);
                 document.add(linha12);
+                linha12 = new Paragraph("_______________________________________________________________________");
+                linha12.setAlignment(Element.ALIGN_CENTER);
+                document.add(linha12);
                 //Linha 13
-                Paragraph linha13 = new Paragraph("Complemento", boldFont);
-                linha13.setAlignment(Element.ALIGN_JUSTIFIED);
-                document.add(linha13);
-                linha13 = new Paragraph(paciente.getEnderecoComplementoPaciente(), normal);
-                linha13.setAlignment(Element.ALIGN_JUSTIFIED);
-                document.add(linha13);
+
+                if (!(paciente.getEnderecoComplementoPaciente().equals(""))) {
+                    Paragraph linha13 = new Paragraph("Complemento", boldFont);
+                    linha13.setAlignment(Element.ALIGN_JUSTIFIED);
+                    document.add(linha13);
+                    linha13 = new Paragraph(paciente.getEnderecoComplementoPaciente(), normal);
+                    linha13.setAlignment(Element.ALIGN_JUSTIFIED);
+                    document.add(linha13);
+                    linha13 = new Paragraph("_______________________________________________________________________");
+                    linha13.setAlignment(Element.ALIGN_CENTER);
+                    document.add(linha13);
+                }
+                //Linha 14
+                Paragraph linha14 = new Paragraph("Cidade", boldFont);
+                linha14.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha14);
+                linha14 = new Paragraph(paciente.getCidadePaciente(), normal);
+                linha14.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha14);
+                linha14 = new Paragraph("_______________________________________________________________________");
+                linha14.setAlignment(Element.ALIGN_CENTER);
+                document.add(linha14);
+                //Linha 15
+                Paragraph linha15 = new Paragraph("Estado", boldFont);
+                linha15.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha15);
+                linha15 = new Paragraph(paciente.getEstadoPaciente(), normal);
+                linha15.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha15);
+                linha15 = new Paragraph("_______________________________________________________________________");
+                linha15.setAlignment(Element.ALIGN_CENTER);
+                document.add(linha15);
+                //Linha 16
+                Paragraph linha16 = new Paragraph("Telefone do paciente", boldFont);
+                linha16.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha16);
+                linha16 = new Paragraph(paciente.getTelefonePaciente(), normal);
+                linha16.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha16);
+                linha16 = new Paragraph("_______________________________________________________________________");
+                linha16.setAlignment(Element.ALIGN_CENTER);
+                document.add(linha16);
+                //Linha 17
+                if (!(paciente.getNomeResponsavelPaciente().equals(""))) {
+                    Paragraph linha17 = new Paragraph("Nome do responsável", boldFont);
+                    linha17.setAlignment(Element.ALIGN_JUSTIFIED);
+                    document.add(linha17);
+                    linha17 = new Paragraph(paciente.getNomeResponsavelPaciente(), normal);
+                    linha17.setAlignment(Element.ALIGN_JUSTIFIED);
+                    document.add(linha17);
+                    linha17 = new Paragraph("_______________________________________________________________________");
+                    linha17.setAlignment(Element.ALIGN_CENTER);
+                    document.add(linha17);
+                }
+                //Linha 18
+                if (!(paciente.getTelefoneResponsavelPaciente().equals("(  )       -    "))) {
+                    Paragraph linha18 = new Paragraph("Telefone do responsável", boldFont);
+                    linha18.setAlignment(Element.ALIGN_JUSTIFIED);
+                    document.add(linha18);
+                    linha18 = new Paragraph(paciente.getTelefoneResponsavelPaciente(), normal);
+                    linha18.setAlignment(Element.ALIGN_JUSTIFIED);
+                    linha18 = new Paragraph("_______________________________________________________________________");
+                    linha18.setAlignment(Element.ALIGN_CENTER);
+                    document.add(linha18);
+                    document.add(linha18);
+                }
             } catch (com.itextpdf.text.DocumentException ex) {
                 Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -179,7 +284,6 @@ public class Relatorios {
 //        } catch (DocumentException ex) {
 //            Logger.getLogger(Relatorios.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-
         document.close();
     }
 
