@@ -42,7 +42,8 @@ public class Relatorios {
         // criação do documento
         Document document = new Document();
         Font boldFont = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
-        String diretorioPdf = "cadastroPaciente" + formatarData.format(new Date()) + ".pdf";
+        Font normal = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.NORMAL);
+        String diretorioPdf = "paciente" + formatarData.format(new Date()) + ".pdf";
 
         try {
 
@@ -60,97 +61,105 @@ public class Relatorios {
             } catch (com.itextpdf.text.DocumentException ex) {
                 Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            
             try {
-                document.add(new Paragraph(" "));
+                //Linha 01
+                Paragraph linha1 = new Paragraph("Nome do Paciente", boldFont);
+                linha1.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha1);
+                linha1 = new Paragraph(paciente.getNomePaciente(), normal);
+                linha1.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha1);
+                //Linha 02
+                Paragraph linha2 = new Paragraph("Sexo", boldFont);
+                linha2.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha2);
+                linha2 = new Paragraph(paciente.getSexoPaciente(), normal);
+                linha2.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha2);
+                //Linha 03
+                Paragraph linha3 = new Paragraph("CPF Paciente", boldFont);
+                linha3.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha3);
+                linha3 = new Paragraph(paciente.getCpfPaciente(), normal);
+                linha3.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha3);
+                //Linha 04
+                Paragraph linha4 = new Paragraph("RG Paciente", boldFont);
+                linha4.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha4);
+                linha4 = new Paragraph(paciente.getRgPaciente(), normal);
+                linha4.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha4);
+                //Linha 05
+                Paragraph linha5 = new Paragraph("Situação do Paciente", boldFont);
+                linha5.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha5);
+                linha5 = new Paragraph(paciente.getSituacaoPaciente(), normal);
+                linha5.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha5);
+                //Linha 06
+                Paragraph linha6 = new Paragraph("Tipo Paciente", boldFont);
+                linha6.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha6);
+                linha6 = new Paragraph(paciente.getTipoPaciente(), normal);
+                linha6.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha6);
+                //Linha 07
+                Paragraph linha7 = new Paragraph("Data de Nascimento do Paciente", boldFont);
+                linha7.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha7);
+                linha7 = new Paragraph(converterDataString(paciente.getDataCadastroPaciente()), normal);
+                linha7.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha7);
+                //Linha 08
+                Paragraph linha8 = new Paragraph("CPF do Responsável", boldFont);
+                linha8.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha8);
+                linha8 = new Paragraph(paciente.getCpfResponsavel(), normal);
+                linha8.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha8);
+                //Linha 09
+                Paragraph linha9 = new Paragraph("RG do Responsável", boldFont);
+                linha9.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha9);
+                linha9 = new Paragraph(paciente.getRgResponsavel(), normal);
+                linha9.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha9);
+                //Linha 10
+                Paragraph linha10 = new Paragraph("Endereço", boldFont);
+                linha10.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha10);
+                linha10 = new Paragraph(paciente.getEnderecoPaciente(), normal);
+                linha10.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha10);
+                //Linha 11
+                Paragraph linha11 = new Paragraph("Nº", boldFont);
+                linha11.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha11);
+                linha11 = new Paragraph(paciente.getEnderecoNumeroPaciente(), normal);
+                linha11.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha11);
+                //Linha 12
+                Paragraph linha12 = new Paragraph("Bairro", boldFont);
+                linha12.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha12);
+                linha12 = new Paragraph(paciente.getEnderecoBairroPaciente(), normal);
+                linha12.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha12);
+                //Linha 13
+                Paragraph linha13 = new Paragraph("Complemento", boldFont);
+                linha13.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha13);
+                linha13 = new Paragraph(paciente.getEnderecoComplementoPaciente(), normal);
+                linha13.setAlignment(Element.ALIGN_JUSTIFIED);
+                document.add(linha13);
             } catch (com.itextpdf.text.DocumentException ex) {
                 Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            PdfPTable tabela = new PdfPTable(3);
-
-            PdfPCell celulaTituloNome = new PdfPCell(new Phrase("Nome", boldFont));
-            PdfPCell celulaTituloSexo = new PdfPCell(new Phrase("Sexo", boldFont));
-            PdfPCell celulaTituloCpfPaciente = new PdfPCell(new Phrase("CPF do paciente", boldFont));
-            PdfPCell celulaTituloRgPaciente = new PdfPCell(new Phrase("RG do paciente", boldFont));
-            PdfPCell celulaTituloSituacao = new PdfPCell(new Phrase("Situação do paciente", boldFont));
-            PdfPCell celulaTituloTipo = new PdfPCell(new Phrase("Tipo do paciente", boldFont));
-            PdfPCell celulaTituloCpfResponsavel = new PdfPCell(new Phrase("CPF do responsável", boldFont));
-            PdfPCell celulaTituloRgResponsavel = new PdfPCell(new Phrase("RG do responsável", boldFont));
-            PdfPCell celulaTituloEndereco = new PdfPCell(new Phrase("Endereço", boldFont));
-            PdfPCell celulaTituloNumero = new PdfPCell(new Phrase("Nº", boldFont));
-            PdfPCell celulaTituloBairro = new PdfPCell(new Phrase("Bairro", boldFont));
-            PdfPCell celulaTituloComplemento = new PdfPCell(new Phrase("Complemento", boldFont));
-            PdfPCell celulaTituloCidade = new PdfPCell(new Phrase("Cidade", boldFont));
-            PdfPCell celulaTituloEstado = new PdfPCell(new Phrase("Estado", boldFont));
-            PdfPCell celulaTituloTelefonePaciente = new PdfPCell(new Phrase("Telefone paciente", boldFont));
-            PdfPCell celulaTituloNomeResponsavel = new PdfPCell(new Phrase("Nome do Responsável", boldFont));
-            PdfPCell celulaTituloTelefoneResponsavel = new PdfPCell(new Phrase("Telefone responsável", boldFont));
-
-            tabela.addCell(celulaTituloNome);
-            tabela.addCell(celulaTituloSexo);
-            tabela.addCell(celulaTituloCpfPaciente);
-            tabela.addCell(celulaTituloRgPaciente);
-            tabela.addCell(celulaTituloSituacao);
-            tabela.addCell(celulaTituloTipo);
-            tabela.addCell(celulaTituloCpfResponsavel);
-            tabela.addCell(celulaTituloRgResponsavel);
-            tabela.addCell(celulaTituloEndereco);
-            tabela.addCell(celulaTituloNumero);
-            tabela.addCell(celulaTituloBairro);
-            tabela.addCell(celulaTituloComplemento);
-            tabela.addCell(celulaTituloCidade);
-            tabela.addCell(celulaTituloEstado);
-            tabela.addCell(celulaTituloTelefonePaciente);
-            tabela.addCell(celulaTituloNomeResponsavel);
-            tabela.addCell(celulaTituloTelefoneResponsavel);
-
-            //for (Object dado : dados) {
-
-                //Paciente objeto = (Paciente) paciente;
-
-                PdfPCell str1 = new PdfPCell(new Phrase(paciente.getNomePaciente()));
-                PdfPCell str2 = new PdfPCell(new Phrase(paciente.getSexoPaciente()));
-                PdfPCell str3 = new PdfPCell(new Phrase(paciente.getCpfPaciente()));
-                PdfPCell str4 = new PdfPCell(new Phrase(paciente.getRgPaciente()));
-                PdfPCell str5 = new PdfPCell(new Phrase(paciente.getSituacaoPaciente()));
-                PdfPCell str6 = new PdfPCell(new Phrase(paciente.getTipoPaciente()));
-                PdfPCell str7 = new PdfPCell(new Phrase(converterDataString(paciente.getDataNascimentoPaciente())));
-                PdfPCell str8 = new PdfPCell(new Phrase(paciente.getCpfResponsavel()));
-                PdfPCell str9 = new PdfPCell(new Phrase(paciente.getRgResponsavel()));
-                PdfPCell str10 = new PdfPCell(new Phrase(paciente.getEnderecoPaciente()));
-                PdfPCell str11 = new PdfPCell(new Phrase(paciente.getEnderecoNumeroPaciente()));
-                PdfPCell str12 = new PdfPCell(new Phrase(paciente.getEnderecoBairroPaciente()));
-                PdfPCell str13 = new PdfPCell(new Phrase(paciente.getEnderecoComplementoPaciente()));
-                PdfPCell str14 = new PdfPCell(new Phrase(paciente.getCidadePaciente()));
-                PdfPCell str15 = new PdfPCell(new Phrase(paciente.getEstadoPaciente()));
-                PdfPCell str16 = new PdfPCell(new Phrase(paciente.getTelefonePaciente()));
-                PdfPCell str17 = new PdfPCell(new Phrase(paciente.getNomeResponsavelPaciente()));
-                PdfPCell str18 = new PdfPCell(new Phrase(paciente.getTelefoneResponsavelPaciente()));
-
-                tabela.addCell(str1);
-                tabela.addCell(str2);
-                tabela.addCell(str3);
-                tabela.addCell(str4);
-                tabela.addCell(str5);
-                tabela.addCell(str6);
-                tabela.addCell(str7);
-                tabela.addCell(str8);
-                tabela.addCell(str9);
-                tabela.addCell(str10);
-                tabela.addCell(str11);
-                tabela.addCell(str12);
-                tabela.addCell(str13);
-                tabela.addCell(str14);
-                tabela.addCell(str15);
-                tabela.addCell(str16);
-                tabela.addCell(str17);
-                
-            //}
-
-            tabela.setWidthPercentage(100);
             try {
-                document.add(tabela);
+                document.add(new Paragraph(" "));
             } catch (com.itextpdf.text.DocumentException ex) {
                 Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -160,16 +169,16 @@ public class Relatorios {
             System.err.println(de.getMessage());
         }
 
-        try {
-            Paragraph linha = new Paragraph();
-            linha.add(new Paragraph(" "));
-            document.add(linha);
-            //linha.add(new Paragraph("Assinatura: __________________________", boldFont));
-            linha.setAlignment(Element.ALIGN_RIGHT);
-            document.add(linha);
-        } catch (DocumentException ex) {
-            Logger.getLogger(Relatorios.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            Paragraph linha = new Paragraph();
+//            linha.add(new Paragraph(" "));
+//            document.add(linha);
+//            linha.add(new Paragraph("Assinatura: __________________________", boldFont));
+//            linha.setAlignment(Element.ALIGN_RIGHT);
+//            document.add(linha);
+//        } catch (DocumentException ex) {
+//            Logger.getLogger(Relatorios.class.getName()).log(Level.SEVERE, null, ex);
+//        }
 
         document.close();
     }
