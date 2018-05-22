@@ -715,7 +715,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
                 paciente.setCpfResponsavel(txtCpfResponsavel.getText());
                 paciente.setRgResponsavel(txtRgResponsavel.getText());
                 pacienteDAO.salvar(paciente);
-                
+                Relatorios.gerarRelatorioDadosCadastrais(paciente);
                 btLimparActionPerformed(null);
                 txtCpf.setText("");
                 txtCpfResponsavel.setText("");
@@ -731,7 +731,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
                     JOptionPane.showMessageDialog(this, "Prencha os campos obrigatórios!!");
 
                 } else {
-                    if (pacienteDAO.consultarValorRepetido("cpfPaciente", txtCpf.getText())) {
+                    if (pacienteDAO.consultarValorRepetido("cpfPaciente", txtCpf.getText()) && paciente.getIdPaciente() ==0) {
                         JOptionPane.showMessageDialog(this, "CPF do paciente já cadastrado!!");
                         txtCpf.requestFocus();
                         jtGeral.setSelectedComponent(jpPaciente);
@@ -760,6 +760,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
                         paciente.setCpfResponsavel(txtCpfResponsavel.getText());
                         paciente.setRgResponsavel(txtRgResponsavel.getText());
                         pacienteDAO.salvar(paciente);
+                        Relatorios.gerarRelatorioDadosCadastrais(paciente);
                         btLimparActionPerformed(null);
                         txtCpf.setText("");
                         txtCpfResponsavel.setText("");

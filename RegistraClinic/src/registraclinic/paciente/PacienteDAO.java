@@ -24,7 +24,7 @@ public class PacienteDAO extends GenericDAO<Paciente>{
         if (paciente.getIdPaciente() == 0) {
             if (adicionar(paciente)) {
                 JOptionPane.showMessageDialog(null, "Paciente cadastrado(a) com sucesso!");
-                Relatorios.gerarRelatorioDadosCadastrais(paciente);
+                
             }
         } else if (JOptionPane.showOptionDialog(null, "Deseja mesmo realizar essa edição"
                 + "?", "RegistraClinic", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]) == JOptionPane.YES_OPTION) {
