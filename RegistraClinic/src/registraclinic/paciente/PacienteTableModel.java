@@ -19,7 +19,7 @@ import registraclinic.usuario.Usuario;
 public class PacienteTableModel extends AbstractTableModel {
 
     private List<Paciente> pacientes = new ArrayList<>();
-    private String[] colunas = {"Código", "Prontuário", "Nome", "RG", "CPF", "Data Nascimento", "Sexo", "Idade", "Endereço", "Cidade", "Telefone Paciente", "Nome Responsável", "Telefone Responsável", "Data Cadastro", "Situação", "Tipo"};
+    private String[] colunas = {"Código", "Prontuário", "Nome", "Disponibilidade", "RG", "CPF", "Data Nascimento", "Sexo", "Idade", "Endereço", "Cidade", "Telefone Paciente", "Telefone Opcional", "Nome Responsável", "Telefone Responsável", "Data Cadastro", "Situação", "Tipo", "Queixa"};
 
     public PacienteTableModel(List<Paciente> pacientes) {
         this.pacientes = pacientes;
@@ -39,7 +39,7 @@ public class PacienteTableModel extends AbstractTableModel {
         SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
         return f.format(date);
     }
-    
+
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Paciente paciente = pacientes.get(rowIndex);
@@ -51,31 +51,37 @@ public class PacienteTableModel extends AbstractTableModel {
             case 2:
                 return paciente.getNomePaciente();
             case 3:
-                return paciente.getRgPaciente();
+                return paciente.getDisponibilidadeTurno();
             case 4:
-                return paciente.getCpfPaciente();
+                return paciente.getRgPaciente();
             case 5:
-                return converterDataString(paciente.getDataNascimentoPaciente());
+                return paciente.getCpfPaciente();
             case 6:
-                return paciente.getSexoPaciente();
+                return converterDataString(paciente.getDataNascimentoPaciente());
             case 7:
-                return paciente.getIdadePaciente();
+                return paciente.getSexoPaciente();
             case 8:
-                return paciente.getEnderecoPaciente();
+                return paciente.getIdadePaciente();
             case 9:
-                return paciente.getCidadePaciente();
+                return paciente.getEnderecoPaciente();
             case 10:
-                return paciente.getTelefonePaciente();
+                return paciente.getCidadePaciente();
             case 11:
-                return paciente.getNomeResponsavelPaciente();
+                return paciente.getTelefonePaciente();
             case 12:
-                return paciente.getTelefoneResponsavelPaciente();
+                return paciente.getTelefoneDoisOpcional();
             case 13:
-                return paciente.getDataCadastroPaciente();
+                return paciente.getNomeResponsavelPaciente();
             case 14:
-                return paciente.getSituacaoPaciente();
+                return paciente.getTelefoneResponsavelPaciente();
             case 15:
+                return paciente.getDataCadastroPaciente();
+            case 16:
+                return paciente.getSituacaoPaciente();
+            case 17:
                 return paciente.getTipoPaciente();
+            case 18:
+                return paciente.getQueixaPaciente();
         }
         return null;
     }
@@ -115,7 +121,12 @@ public class PacienteTableModel extends AbstractTableModel {
                 return colunas[14];
             case 15:
                 return colunas[15];
-
+            case 16:
+                return colunas[16];
+            case 17:
+                return colunas[17];
+            case 18:
+                return colunas[18];
         }
         return null;
     }

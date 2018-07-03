@@ -41,6 +41,9 @@ public class Paciente {
     private Date dataCadastroPaciente;
     private String situacaoPaciente;
     private String tipoPaciente;
+    private String queixaPaciente;
+    private String disponibilidadeTurno;
+    private String telefoneDoisOpcional;
 
     public int getIdPaciente() {
         return idPaciente;
@@ -217,6 +220,29 @@ public class Paciente {
     public void setEstadoPaciente(String EstadoPaciente) {
         this.EstadoPaciente = EstadoPaciente;
     }
-        
+
+    public String getQueixaPaciente() {
+        return queixaPaciente;
+    }
+
+    public void setQueixaPaciente(String queixaPaciente) {
+        this.queixaPaciente = queixaPaciente;
+    }    
+
+    public String getDisponibilidadeTurno() {
+        return disponibilidadeTurno;
+    }
+
+    public void setDisponibilidadeTurno(String disponibilidadeTurno) {
+        this.disponibilidadeTurno = disponibilidadeTurno;
+    }
+
+    public String getTelefoneDoisOpcional() {
+        return telefoneDoisOpcional;
+    }
+
+    public void setTelefoneDoisOpcional(String telefoneDoisOpcional) {
+        this.telefoneDoisOpcional = telefoneDoisOpcional;
+    }
     
 }
