@@ -72,7 +72,6 @@ public class CadastroUsuario extends javax.swing.JDialog {
         jLabel9.setBounds(90, 190, 70, 17);
 
         txtLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtLogin.setForeground(new java.awt.Color(22, 64, 61));
         txtLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         txtLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtLogin.setMargin(null);
