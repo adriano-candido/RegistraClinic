@@ -929,7 +929,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
     }//GEN-LAST:event_txtTelefonePacienteActionPerformed
 
     private void jcTipoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcTipoPacienteActionPerformed
-        if (!jcTipoPaciente.getSelectedItem().equals("Criança")) {
+        if (!(jcTipoPaciente.getSelectedItem().equals("Criança") || jcTipoPaciente.getSelectedItem().equals("Adolescente"))) {
             txtNomeResponsavel.setEnabled(false);
             txtTelefoneResponsavel.setEnabled(false);
             txtCpfResponsavel.setEnabled(false);
