@@ -86,6 +86,11 @@ public class CadastroPaciente extends javax.swing.JDialog {
         jLObrigatorioNome6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLObrigatorioNome5 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        txtSetorEncaminhamento = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jcEncaminhado = new javax.swing.JComboBox<>();
+        jLObrigatorioNome16 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -123,7 +128,8 @@ public class CadastroPaciente extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(700, 500));
+        setMaximumSize(new java.awt.Dimension(700, 600));
+        setMinimumSize(new java.awt.Dimension(700, 600));
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(null);
@@ -132,6 +138,9 @@ public class CadastroPaciente extends javax.swing.JDialog {
         jtGeral.setForeground(new java.awt.Color(22, 64, 61));
         jtGeral.setToolTipText("");
         jtGeral.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jtGeral.setMaximumSize(new java.awt.Dimension(700, 400));
+        jtGeral.setMinimumSize(new java.awt.Dimension(700, 400));
+        jtGeral.setPreferredSize(new java.awt.Dimension(700, 400));
         jtGeral.setVerifyInputWhenFocusTarget(false);
 
         jpPaciente.setBackground(new java.awt.Color(65, 191, 182));
@@ -293,7 +302,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jtQueixaPaciente);
 
         jpPaciente.add(jScrollPane1);
-        jScrollPane1.setBounds(30, 200, 510, 70);
+        jScrollPane1.setBounds(30, 200, 510, 90);
 
         jcSituacaoPaciente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jcSituacaoPaciente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Em espera", "Ativo", "Inativo" }));
@@ -380,10 +389,52 @@ public class CadastroPaciente extends javax.swing.JDialog {
         jpPaciente.add(jLObrigatorioNome5);
         jLObrigatorioNome5.setBounds(530, 190, 10, 10);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/Tela-CadastrarSupervisor.png"))); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel27.setText("Encaminhado");
+        jpPaciente.add(jLabel27);
+        jLabel27.setBounds(550, 240, 110, 17);
+
+        txtSetorEncaminhamento.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtSetorEncaminhamento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        txtSetorEncaminhamento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        txtSetorEncaminhamento.setMargin(null);
+        txtSetorEncaminhamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSetorEncaminhamentoActionPerformed(evt);
+            }
+        });
+        jpPaciente.add(txtSetorEncaminhamento);
+        txtSetorEncaminhamento.setBounds(30, 320, 330, 30);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel14.setText("Setor de Encaminhamento");
+        jpPaciente.add(jLabel14);
+        jLabel14.setBounds(30, 300, 210, 19);
+
+        jcEncaminhado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jcEncaminhado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Sim", "Não" }));
+        jcEncaminhado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jcEncaminhado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcEncaminhadoActionPerformed(evt);
+            }
+        });
+        jpPaciente.add(jcEncaminhado);
+        jcEncaminhado.setBounds(550, 260, 120, 30);
+
+        jLObrigatorioNome16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLObrigatorioNome16.setForeground(new java.awt.Color(204, 0, 0));
+        jLObrigatorioNome16.setText("*");
+        jpPaciente.add(jLObrigatorioNome16);
+        jLObrigatorioNome16.setBounds(660, 250, 10, 10);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/Tela-CadastrarPaciente2.png"))); // NOI18N
         jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jLabel1.setMaximumSize(new java.awt.Dimension(704, 380));
+        jLabel1.setMinimumSize(new java.awt.Dimension(704, 380));
+        jLabel1.setPreferredSize(new java.awt.Dimension(704, 380));
         jpPaciente.add(jLabel1);
-        jLabel1.setBounds(0, 0, 700, 280);
+        jLabel1.setBounds(0, 0, 700, 380);
 
         jtGeral.addTab("Dados Pessoais", jpPaciente);
 
@@ -583,15 +634,18 @@ public class CadastroPaciente extends javax.swing.JDialog {
         jPanel3.add(txtTelefoneResponsavel);
         txtTelefoneResponsavel.setBounds(510, 210, 160, 30);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/Tela-CadastrarSupervisor.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/Tela-CadastrarPaciente2.png"))); // NOI18N
         jLabel9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jLabel9.setMaximumSize(new java.awt.Dimension(704, 380));
+        jLabel9.setMinimumSize(new java.awt.Dimension(704, 380));
+        jLabel9.setPreferredSize(new java.awt.Dimension(704, 380));
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(0, 0, 700, 280);
+        jLabel9.setBounds(0, 0, 700, 380);
 
         jtGeral.addTab("Contato", jPanel3);
 
         getContentPane().add(jtGeral);
-        jtGeral.setBounds(0, 100, 700, 310);
+        jtGeral.setBounds(0, 100, 700, 400);
 
         btVoltar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/voltar2.png"))); // NOI18N
@@ -606,7 +660,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
             }
         });
         getContentPane().add(btVoltar);
-        btVoltar.setBounds(150, 420, 90, 70);
+        btVoltar.setBounds(150, 520, 90, 70);
 
         btPesquisar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/pesquisa.png"))); // NOI18N
@@ -621,7 +675,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
             }
         });
         getContentPane().add(btPesquisar);
-        btPesquisar.setBounds(380, 420, 100, 70);
+        btPesquisar.setBounds(380, 520, 100, 70);
 
         btExcluir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/excluir_1.png"))); // NOI18N
@@ -636,7 +690,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
             }
         });
         getContentPane().add(btExcluir);
-        btExcluir.setBounds(490, 420, 80, 70);
+        btExcluir.setBounds(490, 520, 80, 70);
 
         btLimpar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/limpar_1.png"))); // NOI18N
@@ -651,7 +705,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
             }
         });
         getContentPane().add(btLimpar);
-        btLimpar.setBounds(280, 420, 80, 70);
+        btLimpar.setBounds(280, 520, 80, 70);
 
         btSalvar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/salvar_1.png"))); // NOI18N
@@ -666,12 +720,15 @@ public class CadastroPaciente extends javax.swing.JDialog {
             }
         });
         getContentPane().add(btSalvar);
-        btSalvar.setBounds(610, 420, 80, 70);
+        btSalvar.setBounds(610, 520, 80, 70);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/Tela-CadastrarPaciente.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/Tela-CadastrarPaciente2.png"))); // NOI18N
         jLabel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jLabel6.setMaximumSize(new java.awt.Dimension(704, 600));
+        jLabel6.setMinimumSize(new java.awt.Dimension(704, 600));
+        jLabel6.setPreferredSize(new java.awt.Dimension(704, 600));
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(0, 0, 700, 500);
+        jLabel6.setBounds(0, 0, 700, 600);
 
         pack();
         setLocationRelativeTo(null);
@@ -958,6 +1015,28 @@ public class CadastroPaciente extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefoneOpcionalActionPerformed
 
+    private void jcEncaminhadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcEncaminhadoActionPerformed
+        if (!(jcEncaminhado.getSelectedItem().equals("Sim"))) {
+            txtNomeResponsavel.setEnabled(false);
+            txtTelefoneResponsavel.setEnabled(false);
+            txtCpfResponsavel.setEnabled(false);
+            txtRgResponsavel.setEnabled(false);
+        } else {
+            txtNomeResponsavel.setEnabled(true);
+            txtTelefoneResponsavel.setEnabled(true);
+            txtCpfResponsavel.setEnabled(true);
+            txtRgResponsavel.setEnabled(true);
+            paciente.setNomeResponsavelPaciente(txtNomeResponsavel.getText());
+            paciente.setTelefoneResponsavelPaciente(txtTelefoneResponsavel.getText());
+            paciente.setCpfResponsavel(txtCpfResponsavel.getText());
+            paciente.setRgResponsavel(txtRgResponsavel.getText());
+        }
+    }//GEN-LAST:event_jcEncaminhadoActionPerformed
+
+    private void txtSetorEncaminhamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSetorEncaminhamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSetorEncaminhamentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1015,6 +1094,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
     private javax.swing.JLabel jLObrigatorioNome12;
     private javax.swing.JLabel jLObrigatorioNome13;
     private javax.swing.JLabel jLObrigatorioNome15;
+    private javax.swing.JLabel jLObrigatorioNome16;
     private javax.swing.JLabel jLObrigatorioNome2;
     private javax.swing.JLabel jLObrigatorioNome3;
     private javax.swing.JLabel jLObrigatorioNome4;
@@ -1028,6 +1108,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -1041,6 +1122,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1051,6 +1133,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jcDisponibilidade;
+    private javax.swing.JComboBox<String> jcEncaminhado;
     private javax.swing.JComboBox<String> jcEstado;
     private javax.swing.JComboBox<String> jcSexo;
     private javax.swing.JComboBox<String> jcSituacaoPaciente;
@@ -1071,6 +1154,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
     private javax.swing.JTextField txtNumeroProntuario;
     private javax.swing.JTextField txtRg;
     private javax.swing.JTextField txtRgResponsavel;
+    private javax.swing.JTextField txtSetorEncaminhamento;
     private javax.swing.JFormattedTextField txtTelefoneOpcional;
     private javax.swing.JFormattedTextField txtTelefonePaciente;
     private javax.swing.JFormattedTextField txtTelefoneResponsavel;
