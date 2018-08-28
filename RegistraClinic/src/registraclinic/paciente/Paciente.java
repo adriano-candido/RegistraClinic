@@ -12,7 +12,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author Paulo
+ * @author Karlos Oliveira
  */
 @Entity
 public class Paciente {
@@ -44,6 +44,10 @@ public class Paciente {
     private String queixaPaciente;
     private String disponibilidadeTurno;
     private String telefoneDoisOpcional;
+    private String encaminhado;
+    private String setorEncaminhamento;
+    private String contrareferencia;
+    private String outrosContrareferencia;
 
     public int getIdPaciente() {
         return idPaciente;
@@ -243,6 +247,38 @@ public class Paciente {
 
     public void setTelefoneDoisOpcional(String telefoneDoisOpcional) {
         this.telefoneDoisOpcional = telefoneDoisOpcional;
+    }
+
+    public String getEncaminhado() {
+        return encaminhado;
+    }
+
+    public void setEncaminhado(String encaminhado) {
+        this.encaminhado = encaminhado;
+    }
+
+    public String getSetorEncaminhamento() {
+        return setorEncaminhamento;
+    }
+
+    public void setSetorEncaminhamento(String setorEncaminhamento) {
+        this.setorEncaminhamento = setorEncaminhamento;
+    }
+
+    public String getContrareferencia() {
+        return contrareferencia;
+    }
+
+    public void setContrareferencia(String contrareferencia) {
+        this.contrareferencia = contrareferencia;
+    }
+
+    public String getOutrosContrareferencia() {
+        return outrosContrareferencia;
+    }
+
+    public void setOutrosContrareferencia(String outrosContrareferencia) {
+        this.outrosContrareferencia = outrosContrareferencia;
     }
     
 }
