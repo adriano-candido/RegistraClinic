@@ -505,11 +505,12 @@
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
+                  <StringArray count="5">
                     <StringItem index="0" value="-----"/>
                     <StringItem index="1" value="Manh&#xe3;"/>
                     <StringItem index="2" value="Tarde"/>
                     <StringItem index="3" value="Noite"/>
+                    <StringItem index="4" value="Todos"/>
                   </StringArray>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

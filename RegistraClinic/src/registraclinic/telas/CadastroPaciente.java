@@ -326,7 +326,7 @@ public class CadastroPaciente extends javax.swing.JDialog {
         jLObrigatorioNome15.setBounds(710, 140, 10, 10);
 
         jcDisponibilidade.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jcDisponibilidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Manhã", "Tarde", "Noite" }));
+        jcDisponibilidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Manhã", "Tarde", "Noite", "Todos" }));
         jcDisponibilidade.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jpPaciente.add(jcDisponibilidade);
         jcDisponibilidade.setBounds(600, 150, 120, 30);
