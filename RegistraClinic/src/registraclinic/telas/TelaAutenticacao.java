@@ -176,7 +176,7 @@ public class TelaAutenticacao extends javax.swing.JFrame {
             usuario = usuarioDAO.autenticarUsuario(txtLogin.getText(), txtSenha.getText());
 
             if (usuario != null) {
-                TelaInicial menu = new TelaInicial(null, rootPaneCheckingEnabled,usuario);
+                TelaInicial menu = new TelaInicial(null,rootPaneCheckingEnabled,usuario);
                 dispose();
                 menu.setVisible(true);
             }

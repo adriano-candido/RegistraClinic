@@ -6,6 +6,7 @@
 package registraclinic.telas;
 
 import java.awt.Frame;
+import javax.swing.JFrame;
 import registraclinic.usuario.Usuario;
 
 /**
@@ -22,8 +23,10 @@ public class TelaInicial extends javax.swing.JDialog {
      */
     public TelaInicial(java.awt.Frame parent, boolean modal, Usuario usuario) {
         super(parent, modal);
+        this.setUndecorated(true);
         initComponents();
         this.usuario = usuario;
+        
         jlUsuario.setText(usuario.getLoginUsuario().toUpperCase());
         if (usuario.getTipoUsuario().equalsIgnoreCase("Funcionário")) {
             btnUsuario.setVisible(false);
@@ -48,11 +51,11 @@ public class TelaInicial extends javax.swing.JDialog {
         jlNome3 = new javax.swing.JLabel();
         tfSupervisor2 = new javax.swing.JButton();
         jlUsuario = new javax.swing.JLabel();
-        btLogout = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setUndecorated(true);
+        setIconImage(null);
+        setIconImages(null);
 
         jPanel1.setLayout(null);
 
@@ -60,7 +63,7 @@ public class TelaInicial extends javax.swing.JDialog {
         tfAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/student_50px.png"))); // NOI18N
         tfAluno.setText("Aluno");
         tfAluno.setContentAreaFilled(false);
-        tfAluno.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tfAluno.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tfAluno.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         tfAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +77,7 @@ public class TelaInicial extends javax.swing.JDialog {
         tfPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/cast_50px.png"))); // NOI18N
         tfPaciente.setText("Paciente");
         tfPaciente.setContentAreaFilled(false);
-        tfPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tfPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tfPaciente.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tfPaciente.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         tfPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +92,7 @@ public class TelaInicial extends javax.swing.JDialog {
         tfSupervisor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/vincular_paciente.png"))); // NOI18N
         tfSupervisor1.setText("Vincular Paciente/Aluno");
         tfSupervisor1.setContentAreaFilled(false);
-        tfSupervisor1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tfSupervisor1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tfSupervisor1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tfSupervisor1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         tfSupervisor1.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +107,7 @@ public class TelaInicial extends javax.swing.JDialog {
         btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/user.png"))); // NOI18N
         btnUsuario.setText("Usuário");
         btnUsuario.setContentAreaFilled(false);
-        btnUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +121,7 @@ public class TelaInicial extends javax.swing.JDialog {
         tfSupervisor3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/vincular_aluno.png"))); // NOI18N
         tfSupervisor3.setText("Vincular Aluno/Supervisor");
         tfSupervisor3.setContentAreaFilled(false);
-        tfSupervisor3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tfSupervisor3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tfSupervisor3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tfSupervisor3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         tfSupervisor3.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +141,7 @@ public class TelaInicial extends javax.swing.JDialog {
         tfSupervisor2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/course_50px.png"))); // NOI18N
         tfSupervisor2.setText("Supervisor");
         tfSupervisor2.setContentAreaFilled(false);
-        tfSupervisor2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tfSupervisor2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tfSupervisor2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tfSupervisor2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         tfSupervisor2.addActionListener(new java.awt.event.ActionListener() {
@@ -153,22 +156,6 @@ public class TelaInicial extends javax.swing.JDialog {
         jlUsuario.setText("???");
         jPanel1.add(jlUsuario);
         jlUsuario.setBounds(230, 460, 430, 30);
-
-        btLogout.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/icons8_Delete_26px_2.png"))); // NOI18N
-        btLogout.setToolTipText("Sair");
-        btLogout.setContentAreaFilled(false);
-        btLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btLogout.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btLogout.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btLogoutActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btLogout);
-        btLogout.setBounds(650, 0, 50, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registraclinic/imagens/TelaPrincipal.png"))); // NOI18N
         jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
@@ -210,12 +197,6 @@ public class TelaInicial extends javax.swing.JDialog {
         cadastroFuncionario.setVisible(true);
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
-    private void btLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLogoutActionPerformed
-        TelaAutenticacao telaAutenticacao = new TelaAutenticacao();
-        telaAutenticacao.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btLogoutActionPerformed
-
     private void tfSupervisor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSupervisor2ActionPerformed
         CadastroSupervisor cadastroSupervisor = new CadastroSupervisor(null, rootPaneCheckingEnabled);
         cadastroSupervisor.setVisible(true);
@@ -223,6 +204,7 @@ public class TelaInicial extends javax.swing.JDialog {
 
     private void tfSupervisor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSupervisor3ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_tfSupervisor3ActionPerformed
 
     /**
@@ -252,6 +234,12 @@ public class TelaInicial extends javax.swing.JDialog {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -269,7 +257,6 @@ public class TelaInicial extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btLogout;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -281,4 +268,8 @@ public class TelaInicial extends javax.swing.JDialog {
     private javax.swing.JButton tfSupervisor2;
     private javax.swing.JButton tfSupervisor3;
     // End of variables declaration//GEN-END:variables
+
+    private void setExtendedState(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
